@@ -12,64 +12,64 @@
   <!-- LEFT: menu/panels -->
   <div class="panel" id="leftPanel">
     <h1>Snake Game</h1>
-    <div class="muted">Chọn difficulty → Play Preset / Create Map / 2 Players. Có editor, nhiều loại thức ăn, 3 lives, color pick, pause toggle.</div>
+    <div class="muted">Chọn độ khó → Play Preset / Create Map / 2 Players.</div>
 
     <div>
-      <div style="margin-top:8px; font-weight:800;">1) Difficulty</div>
+      <div style="margin-top:8px; font-weight:800;">1) Chọn độ khó</div>
       <div class="row" id="difficultyRow">
-        <button class="btn" data-diff="easy">Easy</button>
-        <button class="btn ghost" data-diff="medium">Medium</button>
-        <button class="btn ghost" data-diff="hard">Hard</button>
+        <button class="btn" data-diff="easy">Dễ</button>
+        <button class="btn ghost" data-diff="medium">Trung bình</button>
+        <button class="btn ghost" data-diff="hard">Khó</button>
       </div>
-      <div class="small" style="margin-top:6px;">Current: <span id="curDifficulty">Medium</span></div>
+      <div class="small" style="margin-top:6px;">Đang chọn: <span id="curDifficulty">Trung Bình</span></div>
     </div>
 
     <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:10px 0;" />
 
     <div>
-      <div style="font-weight:800;">2) What do you want?</div>
+      <div style="font-weight:800;">2) Chọn chức năng muốn chơi</div>
       <div class="row" style="margin-top:8px;">
-        <button class="big" id="btnCreate">Create Map</button>
-        <button class="big" id="btnPresets" style="background:linear-gradient(180deg,#ffb86c,#ff7a00);">Play Preset Maps</button>
-        <button class="big" id="btn2P" style="background:linear-gradient(180deg,#ff6b6b,#ff2e2e);">2 Players (Local)</button>
+        <button class="big" id="btnCreate">Tạo map chơi của riêng bạn</button>
+        <button class="big" id="btnPresets" style="background:linear-gradient(180deg,#ffb86c,#ff7a00);">Chơi Maps thiết lập sẵn</button>
+        <button class="big" id="btn2P" style="background:linear-gradient(180deg,#ff6b6b,#ff2e2e);">2 Người chơi (Local)</button>
       </div>
-      <div class="small" style="margin-top:6px;">Controls: P1 = Arrow keys · P2 = W A S D · P = Pause/Resume</div>
+      <div class="small" style="margin-top:6px;">Điều khiển: P1 = Phím mũi tên · P2 = W A S D · P = Pause/Resume</div>
     </div>
 
     <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:10px 0;" />
 
     <!-- Preset map selector -->
     <div id="presetPanel" style="display:none;">
-      <div style="font-weight:800;">Choose preset map</div>
+      <div style="font-weight:800;">Lựa chọn maps có sẵn</div>
       <div class="mapList" style="margin-top:8px;">
-        <button data-map="classic">Classic (no obstacles)</button>
-        <button data-map="desert">Desert 🌵</button>
-        <button data-map="forest">Forest 🌲</button>
-        <button data-map="maze">Maze 🌀</button>
+        <button data-map="classic">Cổ điển</button>
+        <button data-map="desert">Sa Mạc 🌵</button>
+        <button data-map="forest">Rừng rậm 🌲</button>
+        <button data-map="maze">Mê Cung 🌀</button>
       </div>
       <div style="margin-top:8px;" class="row">
-        <button class="btn" id="startPreset">Start Preset Game</button>
-        <button class="btn ghost" id="backFromPreset">Back</button>
+        <button class="btn" id="startPreset">Bắt đầu chơi Game</button>
+        <button class="btn ghost" id="backFromPreset">Quay lại</button>
       </div>
     </div>
 
     <!-- Editor -->
     <div id="editorPanel" style="display:none;">
-      <div style="font-weight:800;">Map Editor (20×20)</div>
-      <div class="small">Click ô để toggle obstacle. When done: Save or Start with this map.</div>
+      <div style="font-weight:800;">Chỉnh sửa Map (20×20)</div>
+      <div class="small">Click ô để đặt chướng ngại vật. Sau đó Lưu và Bắt đầu chơi với Maps này.</div>
       <div class="row" style="margin-top:8px;">
-        <button class="btn" id="startFromEditor">Start Game With This Map</button>
-        <button class="btn ghost" id="saveMap">Save Map</button>
-        <button class="btn ghost" id="clearMap">Clear</button>
-        <button class="btn ghost" id="backFromEditor">Back</button>
+        <button class="btn" id="startFromEditor">Bắt đầu chơi Game với Maps này.</button>
+        <button class="btn ghost" id="saveMap">Lưu Map</button>
+        <button class="btn ghost" id="clearMap">Xóa</button>
+        <button class="btn ghost" id="backFromEditor">Quay lại</button>
       </div>
       <div style="margin-top:8px;">
         <div class="legend">
-          <div><span class="box" style="background:rgba(255,255,255,0.04);border:1px dashed rgba(255,255,255,0.02)"></span> Empty</div>
-          <div><span class="box" style="background:#7a7a7a"></span> Obstacle</div>
+          <div><span class="box" style="background:rgba(255,255,255,0.04);border:1px dashed rgba(255,255,255,0.02)"></span> Khoảng trống</div>
+          <div><span class="box" style="background:#7a7a7a"></span> Chướng Ngại Vật</div>
           <div><span class="box" style="background:#39d353"></span> Snake 1</div>
           <div><span class="box" style="background:#ff9e4d"></span> Snake 2</div>
-          <div><span class="box" style="background:red"></span> Food</div>
+          <div><span class="box" style="background:red"></span> Thức Ăn</div>
         </div>
       </div>
     </div>
@@ -81,14 +81,14 @@
       <div class="small" id="highscoreInfo">—</div>
     </div>
 
-    <div class="footer">Need anything else? Tell me and I’ll patch it instantly ❤️</div>
+    <div class="footer">Chúc các bạn chơi game vui vẻ ❤️</div>
   </div>
 
   <!-- RIGHT: Stage -->
   <div class="stage">
     <div class="hud" style="width:100%;">
       <div class="scoreBox playerBadge p1">P1 • Score: <span id="p1Score">0</span></div>
-      <div class="scoreBox">Map: <span id="hudMap">classic</span> • Best: <span id="hudBest">0</span></div>
+      <div class="scoreBox">Map: <span id="hudMap">Cổ điển</span> • Best: <span id="hudBest">0</span></div>
       <div id="p2Hud" style="display:none;" class="scoreBox playerBadge p2">P2 • Score: <span id="p2Score">0</span></div>
     </div>
 
@@ -104,7 +104,7 @@
       <div style="display:flex;gap:8px;">
         <button class="btn ghost" id="btnPause">Pause (P)</button>
         <button class="btn ghost" id="btnRestart">Restart (R)</button>
-        <button class="btn ghost" id="btnShowMenu">Show Menu</button>
+        <button class="btn ghost" id="btnShowMenu">Xem Menu</button>
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@
 <!-- Color modal -->
 <div id="colorModal" class="overlay" style="display:none;">
   <div class="modal">
-    <h3>Choose skin colors</h3>
+    <h3>Chọn màu da</h3>
     <div style="text-align:left;margin-top:8px;">
       <div><strong>Player 1 (Arrows)</strong></div>
       <div id="p1ColorRow" class="colorRow">
@@ -135,8 +135,8 @@
     </div>
 
     <div style="margin-top:12px;">
-      <button class="btn" id="confirmColors">Confirm & Choose Map</button>
-      <button class="btn ghost" id="cancelColors">Cancel</button>
+      <button class="btn" id="confirmColors">Đồng ý & Chọn Map</button>
+      <button class="btn ghost" id="cancelColors">Hủy</button>
     </div>
   </div>
 </div>
